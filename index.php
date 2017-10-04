@@ -2,7 +2,7 @@
 
 function Girl($p){
 	
-	$user_name = "";
+	$SetToken = "ImwX1ehjCEDK";
 	
 	if (isset($p["token"])) {
 			$token = strval($p["token"]);
@@ -12,15 +12,14 @@ function Girl($p){
 			$user_name = strval($p["username"]);
 	}
 	
-	if ($token == "ImwX1ehjCEDK"){
+	if ($token == $SetToken){
 		
 		$Link = SQLReturnJPGLink();
-		SQLRecord($user_name, $Link);
-//		print_r($Link);
 
 		echo "{\"text\": \"" . WakeUp！. "\" , \"file_url\": \"".addslashes($Link)."\"}";
 //		print_r($Link);
-//		echo "\"}";	
+		
+		SQLRecord($user_name, $Link);
 		
 	}
 	
